@@ -68,7 +68,7 @@ class BaseCLIAgent:
         _ = (files, images)
         # The runner simply executes the configured CLI command for the selected role.
         command = self._build_command(
-            role=role, 
+            role=role,
             system_prompt=system_prompt,
             allow_edits=allow_edits,
             editable_paths=editable_paths,
@@ -198,9 +198,9 @@ class BaseCLIAgent:
         )
 
     def _build_command(
-        self, 
-        *, 
-        role: ResolvedCLIRole, 
+        self,
+        *,
+        role: ResolvedCLIRole,
         system_prompt: str | None,
         allow_edits: bool = False,
         editable_paths: Sequence[str] = (),

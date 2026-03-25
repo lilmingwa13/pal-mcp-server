@@ -319,8 +319,7 @@ class CLinkTool(SimpleTool):
             sections.append("=== UNTRUSTED USER REQUEST ===\n" + user_content)
             if not request.allow_edits:
                 sections.append(
-                    "=== EXECUTION POLICY ===\n"
-                    "You must NOT perform any filesystem modifications or apply edits."
+                    "=== EXECUTION POLICY ===\n" "You must NOT perform any filesystem modifications or apply edits."
                 )
             if file_section:
                 sections.append("=== FILE REFERENCES ===\n" + file_section)

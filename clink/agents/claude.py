@@ -8,6 +8,7 @@ from clink.parsers.base import ParserError
 from .base import AgentOutput, BaseCLIAgent
 from collections.abc import Sequence
 
+
 class ClaudeAgent(BaseCLIAgent):
     """Claude CLI agent with system-prompt injection support."""
 
@@ -84,9 +85,11 @@ class ClaudeAgent(BaseCLIAgent):
                 sanitized.append(arg)
 
         if not found:
-            sanitized.extend([
-                "--permission-mode",
-                "acceptEdits" if allow_edits else "default",
-            ])
+            sanitized.extend(
+                [
+                    "--permission-mode",
+                    "acceptEdits" if allow_edits else "default",
+                ]
+            )
 
         return sanitized
