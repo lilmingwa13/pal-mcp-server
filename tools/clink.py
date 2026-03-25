@@ -183,7 +183,7 @@ class CLinkTool(SimpleTool):
         request = self.get_request_model()(**arguments)
 
         if request.editable_paths and not request.allow_edits:
-            self._raise_tool_error("editable_paths requires allow_edits=true.")
+            self._raise_tool_error("editable_paths can only be used when allow_edits=true.")
 
         editable_path_error = self._validate_editable_paths(request)
         if editable_path_error:
@@ -497,7 +497,7 @@ class CLinkTool(SimpleTool):
         for raw_path in request.editable_paths:
             try:
                 path = Path(raw_path)
-            except Exception:
+            except (TypeError, ValueError):
                 return f"Invalid editable path: {raw_path}"
 
             if not path.is_absolute():

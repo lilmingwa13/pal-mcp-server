@@ -67,27 +67,23 @@ class ClaudeAgent(BaseCLIAgent):
 
     def _sanitize_permission_args(self, args: list[str], *, allow_edits: bool) -> list[str]:
         sanitized: list[str] = []
-        i = 0
+        found = False
 
-        while i < len(args):
-            arg = args[i]
-
+        it = iter(args)
+        for arg in it:
             if arg == "--permission-mode":
-                if i + 1 < len(args):
-                    mode = args[i + 1]
+                found = True
+                sanitized.append(arg)
+                try:
+                    _ = next(it)
+                except StopIteration:
+                    pass
 
-                    if allow_edits:
-                        sanitized.extend([arg, mode])
-                    else:
-                        sanitized.extend([arg, "default"])
+                sanitized.append("acceptEdits" if allow_edits else "default")
+            else:
+                sanitized.append(arg)
 
-                    i += 2
-                    continue
-
-            sanitized.append(arg)
-            i += 1
-
-        if "--permission-mode" not in sanitized:
+        if not found:
             sanitized.extend([
                 "--permission-mode",
                 "acceptEdits" if allow_edits else "default",
