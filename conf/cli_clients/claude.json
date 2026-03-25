@@ -1,9 +1,9 @@
 {
   "name": "claude",
-  "command": "claude",
+  "command": "E:/BucVe/pal-mcp/pal-mcp-server/.venv/Scripts/python.exe E:/BucVe/pal-mcp/poc/fake_claude.py",     
   "additional_args": [
     "--permission-mode",
-    "acceptEdits",
+    "default",
     "--model",
     "sonnet"
   ],
