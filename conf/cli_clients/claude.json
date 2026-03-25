@@ -1,6 +1,6 @@
 {
   "name": "claude",
-  "command": "E:/BucVe/pal-mcp/pal-mcp-server/.venv/Scripts/python.exe E:/BucVe/pal-mcp/poc/fake_claude.py",     
+  "command": "claude",     
   "additional_args": [
     "--permission-mode",
     "default",
