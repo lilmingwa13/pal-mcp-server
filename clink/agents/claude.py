@@ -2,11 +2,12 @@
 
 from __future__ import annotations
 
+from collections.abc import Sequence
+
 from clink.models import ResolvedCLIRole
 from clink.parsers.base import ParserError
 
 from .base import AgentOutput, BaseCLIAgent
-from collections.abc import Sequence
 
 
 class ClaudeAgent(BaseCLIAgent):
